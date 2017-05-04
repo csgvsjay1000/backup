@@ -1,1 +1,28 @@
 ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++
+sysbench --test=oltp --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-user=root --mysql-password=3g_dba --oltp-table-size=100000 --oltp-table-name=sbtesttb --mysql-db=sbtest  prepare
+7. 配置iptables转发规则
+iptables -t nat -A POSTROUTING -s 10.164.220.024 -j SNAT --to-source 112.74.173.154
+
+g+] 显示更多标签 vim 
+scp root@host:path
+
+
+netstat 使用
+netstat -a 列出所有端口
+netstat -at 列出所有tcp端口
+netstat -au 列出所有udp端口
+netstat -l 列出所有正在监听端口
+
+vmstat 显示服务器cpu使用率,内存使用，虚拟内存交换情况，io读写情况
+vmstat 2 3 每隔2秒显示一次，一共3次，最后3可以不用，就每隔2秒刷新一次
+显示结果介绍
+r 表示运行队列(就是说多少个进程真的分配到cpu)，当这个值超过了CPU数目，就会出现cpu瓶颈了，一般超过了CPU数目3就比较高了，10就不正常，如果运行队列过大表示CPU使用率很高。
+b 表示阻塞的进程
+swpd 虚拟内存已使用的大小，如果大于0，表示机器物理内存不足了，如果不是程序内存泄漏，那么该升级内存，或把耗内存的任务迁移其他机器。
+free 空闲物理内存大小
+buff 权限等缓存
+cache 直接用来记忆我们打开的文件，给文件做缓冲，提高程序执行性能，buff/cache 会很快的被使用
+si 表示每秒从磁盘读入虚拟内存的大小，如果大于0，表示物理内存不够了
+so 同上
+
+
